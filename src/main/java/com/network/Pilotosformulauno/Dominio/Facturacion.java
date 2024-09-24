@@ -21,5 +21,6 @@ public class Facturacion {
 //    @OneToOne(mappedBy = "facturacion",
 //            cascade = CascadeType.ALL,
 //            fetch = FetchType.EAGER)
-    private Piloto piloto;
+
+    //private Piloto piloto;
 }

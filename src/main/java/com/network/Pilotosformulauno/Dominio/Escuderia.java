@@ -21,8 +21,8 @@ public class Escuderia {
     private String nombre;
     @Column(length = 30,nullable = false)
     private String pais;
-
+/*
     @OneToMany
     //    @OneToOne(mappedBy = "escuderia", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private Set<Piloto> pilotoset;
+    private Set<Piloto> pilotoset;)*/
 }
