@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.HashSet;
 import java.util.Set;
 
 @NoArgsConstructor
@@ -18,24 +19,28 @@ public class Piloto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long idPiloto;
-    @Column(length = 30)
+    @Column(length = 30,nullable = false)
     private String nombre;
+    @Column(nullable = false)
     private int edad;
 
 
+    @ElementCollection
+    @CollectionTable(name = "telefonos", joinColumns = @JoinColumn(name = "id_piloto"))
+    @Column(name = "numero",nullable = false)
+    private Set<Telefono> telefonos=new HashSet<>();
 
-    private Set<Telefono> telefonos;
     @ManyToOne
-    @JoinColumn(name="id_pilotoEscuderia", nullable = false, foreignKey = @ForeignKey(name="FK_piloto_escuderia"))
+    @JoinColumn(name="id_pilotoEscuderia", nullable = false, foreignKey = @ForeignKey(name="FK_piloto"))
     private Escuderia escuderia;
 
     @ManyToMany
     @JoinTable(
             name = "piloto_temporada",
-            joinColumns = @JoinColumn(name = "id_piloto",foreignKey = @ForeignKey(name = "FK_piloto_temporada")),
-            inverseJoinColumns = @JoinColumn(name = "id_temporada",foreignKey = @ForeignKey(name = "FK_piloto_temporada"))
+            joinColumns = @JoinColumn(name = "id_piloto",nullable = false, foreignKey = @ForeignKey(name = "FK_temporada")),
+            inverseJoinColumns = @JoinColumn(name = "id_temporada",nullable = false, foreignKey = @ForeignKey(name = "FK_piloto_temporada"))
     )
-    private Set<Temporada> temporadas;
+    private Set<Temporada> temporadas=new HashSet<>();
 
     @OneToOne
     @JoinColumn(name="id_pilotoNif", nullable = false, foreignKey = @ForeignKey(name="FK_piloto_nif"))
