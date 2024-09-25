@@ -1,7 +1,7 @@
 package com.network.Pilotosformulauno.Servicio;
 
 import com.network.Pilotosformulauno.Dominio.Facturacion;
-import com.network.Pilotosformulauno.Persistencia.IRepositorio_Facturacion;
+import com.network.Pilotosformulauno.Repositorio.IRepositorio_Facturacion;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

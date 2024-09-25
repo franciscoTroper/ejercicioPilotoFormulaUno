@@ -1,7 +1,7 @@
 package com.network.Pilotosformulauno.Servicio;
 
 import com.network.Pilotosformulauno.Dominio.Telefono;
-import com.network.Pilotosformulauno.Persistencia.IRepositorio_Telefono;
+import com.network.Pilotosformulauno.Repositorio.IRepositorio_Telefono;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

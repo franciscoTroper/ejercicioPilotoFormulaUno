@@ -1,4 +1,4 @@
-package com.network.Pilotosformulauno.Persistencia;
+package com.network.Pilotosformulauno.Repositorio;
 
 import com.network.Pilotosformulauno.Dominio.Escuderia;
 import org.springframework.data.jpa.repository.JpaRepository;

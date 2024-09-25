@@ -1,7 +1,7 @@
 package com.network.Pilotosformulauno.Servicio;
 
 import com.network.Pilotosformulauno.Dominio.Temporada;
-import com.network.Pilotosformulauno.Persistencia.IRepositorio_Temporada;
+import com.network.Pilotosformulauno.Repositorio.IRepositorio_Temporada;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

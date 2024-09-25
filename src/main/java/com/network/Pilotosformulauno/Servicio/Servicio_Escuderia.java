@@ -1,7 +1,7 @@
 package com.network.Pilotosformulauno.Servicio;
 
 import com.network.Pilotosformulauno.Dominio.Escuderia;
-import com.network.Pilotosformulauno.Persistencia.IRepositorio_Escuderia;
+import com.network.Pilotosformulauno.Repositorio.IRepositorio_Escuderia;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
