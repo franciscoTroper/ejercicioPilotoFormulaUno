@@ -16,13 +16,13 @@ import java.util.Set;
 public class Escuderia {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long idEscuderia;
+    private int idEscuderia;
     @Column(length = 30,nullable = false)
     private String nombre;
     @Column(length = 30,nullable = false)
     private String pais;
-/*
-    @OneToMany
-    //    @OneToOne(mappedBy = "escuderia", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private Set<Piloto> pilotoset;)*/
+
+
+    @OneToMany(mappedBy = "escuderia", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private Set<Piloto> pilotoset;
 }

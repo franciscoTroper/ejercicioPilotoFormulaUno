@@ -25,9 +25,9 @@ public class Piloto {
     private int edad;
 
 
-    @ElementCollection
-    @CollectionTable(name = "telefonos", joinColumns = @JoinColumn(name = "id_piloto"))
-    @Column(name = "numero",nullable = false)
+//    @ElementCollection
+//    @CollectionTable(name = "telefonos", joinColumns = @JoinColumn(name = "id_piloto"))
+    @OneToMany(mappedBy = "piloto")
     private Set<Telefono> telefonos=new HashSet<>();
 
     @ManyToOne

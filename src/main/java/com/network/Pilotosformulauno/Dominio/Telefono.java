@@ -19,6 +19,6 @@ public class Telefono {
     private long numero;
 
     @ManyToOne
-    @JoinColumn(name="id_telefonoPiloto", nullable = false, foreignKey = @ForeignKey(name="FK_telefono_piloto"))
+    @JoinColumn(name="id_Piloto", nullable = false, foreignKey = @ForeignKey(name="FK_telefono_piloto"))
     private Piloto piloto;
 }

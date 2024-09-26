@@ -18,9 +18,8 @@ public class Facturacion {
     private int sueldo;
     private int publicidad;
 
-//    @OneToOne(mappedBy = "facturacion",
-//            cascade = CascadeType.ALL,
-//            fetch = FetchType.EAGER)
-
-    //private Piloto piloto;
+    @OneToOne(mappedBy = "facturacion",
+            cascade = CascadeType.ALL,
+            fetch = FetchType.EAGER)
+    private Piloto piloto;
 }
