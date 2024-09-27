@@ -9,13 +9,13 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 @Service
-public class Servicio_Piloto extends ImplCrud_Servicio<Piloto,Integer> implements IServicio_Piloto {
+public class Servicio_Piloto extends ImplCrud_Servicio<Piloto,Long> implements IServicio_Piloto {
     @Autowired
     private IRepositorio_Piloto iRepositorioPiloto;
 
 
     @Override
-    protected IGenerico_repositorio<Piloto, Integer> getRepo() {
+    protected IGenerico_repositorio<Piloto, Long> getRepo() {
         return iRepositorioPiloto;
     }
 }

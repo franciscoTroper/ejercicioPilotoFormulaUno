@@ -8,7 +8,6 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface IRepositorio_Escuderia extends IGenerico_repositorio<Escuderia,Integer> {
-//    List<Piloto> findAllByIdPiloto(long idPiloto);
-//    List<Piloto> findByNombreNot(String nombreEscuderia);
+public interface IRepositorio_Escuderia extends IGenerico_repositorio<Escuderia,Long> {
+
 }

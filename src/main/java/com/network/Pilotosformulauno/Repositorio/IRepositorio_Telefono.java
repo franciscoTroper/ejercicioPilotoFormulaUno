@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface IRepositorio_Telefono extends IGenerico_repositorio<Telefono,Integer> {
-    //List<Telefono> findAllByIdPiloto(long idPiloto);
+public interface IRepositorio_Telefono extends IGenerico_repositorio<Telefono,Long> {
+    
 }

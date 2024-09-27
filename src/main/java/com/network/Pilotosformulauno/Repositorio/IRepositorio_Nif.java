@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface IRepositorio_Nif extends IGenerico_repositorio<Nif,Long>{
-    Nif findBynumero(int nif);
+    Nif findByNumero(Long nif);
 }

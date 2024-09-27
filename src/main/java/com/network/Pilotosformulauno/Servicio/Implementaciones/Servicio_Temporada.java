@@ -14,8 +14,6 @@ public class Servicio_Temporada extends ImplCrud_Servicio<Temporada,Long> implem
     @Autowired
     private IRepositorio_Temporada iRepositorioTemporada;
 
-
-
     @Override
     protected IGenerico_repositorio<Temporada, Long> getRepo() {
         return iRepositorioTemporada;

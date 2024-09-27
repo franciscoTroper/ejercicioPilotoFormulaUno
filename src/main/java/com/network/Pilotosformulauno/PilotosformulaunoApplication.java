@@ -38,7 +38,7 @@ public class PilotosformulaunoApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 
-		//try {
+
 			telefonos.add(new Telefono(634534241));
 			telefonos.add(new Telefono(634534242));
 			temporadas.add(new Temporada(2,10));
@@ -56,8 +56,13 @@ public class PilotosformulaunoApplication implements CommandLineRunner {
 			}
 			servicioPiloto.register(pilotoFran);
 
-	//	}catch (DataIntegrityViolationException e){}
-	//	catch (PropertyValueException e){}
+//			servicioPiloto.eliminarPilotoPorNumeroNif(59694848L);
+		System.out.println("=================");
+		System.out.println(servicioPiloto.listerPorID(1L));
+			//servicioPiloto.eliminar(1L);
+
+
+
 
 
 

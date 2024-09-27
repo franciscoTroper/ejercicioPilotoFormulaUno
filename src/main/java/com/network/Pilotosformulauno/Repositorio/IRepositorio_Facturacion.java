@@ -5,5 +5,5 @@ import com.network.Pilotosformulauno.Dominio.Piloto;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface IRepositorio_Facturacion extends IGenerico_repositorio<Facturacion,Integer>{
+public interface IRepositorio_Facturacion extends IGenerico_repositorio<Facturacion,Long>{
 }

@@ -14,13 +14,17 @@ import java.util.Optional;
 
 public abstract class ImplCrud_Servicio<T,ID> implements ICrud<T,ID> {
 
+
     protected abstract IGenerico_repositorio<T,ID> getRepo();
     @Autowired
-    protected IRepositorio_Nif iRepositorioNif;
+    private IRepositorio_Nif iRepositorioNif;
+    @Autowired
+    private IRepositorio_Piloto iRepositorioPiloto;
+
 
     public T register(T t) throws Exception{
         Piloto piloto= (Piloto) t;
-        Nif nif =iRepositorioNif.findBynumero((int) piloto.getNif().getNumero());
+        Nif nif =iRepositorioNif.findByNumero(piloto.getNif().getNumero());
         if (nif==null){return getRepo().save(t);}
         else {System.out.println("Ya existe este piloto"); return null;}
 
@@ -35,8 +39,16 @@ public abstract class ImplCrud_Servicio<T,ID> implements ICrud<T,ID> {
         Optional<T> t1= getRepo().findById(id);
         return t1.isPresent()?t1.get():null;
     }
-
     public void eliminar(ID id){
-            getRepo().deleteById(id);
+        getRepo().deleteById(id);
+
     }
+    public void eliminarPilotoPorNumeroNif(Long nif)
+    {
+        Nif nif1=iRepositorioNif.findByNumero(nif);
+        if (nif1!=null){iRepositorioPiloto.deleteById(nif1.getIdNif());}
+        else {System.out.println("No existe el piloto con ese nif");}
+    }
+
+
 }

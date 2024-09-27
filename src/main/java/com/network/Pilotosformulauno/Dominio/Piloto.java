@@ -29,7 +29,6 @@ public class Piloto {
     private Set<Telefono> telefonos=new HashSet<>();
 
     @ManyToOne(cascade = {CascadeType.PERSIST,CascadeType.MERGE,CascadeType.REFRESH})
-
     @JoinColumn(name="id_pilotoEscuderia", nullable = false, foreignKey = @ForeignKey(name="FK_piloto"))
     private Escuderia escuderia;
 

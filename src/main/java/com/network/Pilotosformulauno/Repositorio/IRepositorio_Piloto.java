@@ -9,8 +9,6 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface IRepositorio_Piloto extends IGenerico_repositorio<Piloto,Integer> {
+public interface IRepositorio_Piloto extends IGenerico_repositorio<Piloto,Long> {
 
-   // List<Piloto> findBySueldoGreaterThan(int sueldo);
-   // List<Piloto> findBypublicidadBetween(int firstValue,int secondValue);
 }

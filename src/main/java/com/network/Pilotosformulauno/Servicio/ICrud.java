@@ -12,4 +12,5 @@ public interface ICrud<T,ID> {
     List<T> Lister()throws Exception;
     T listerPorID(ID id) throws Exception;
     void eliminar(ID id) throws Exception;
+    void eliminarPilotoPorNumeroNif(Long nif);
 }
