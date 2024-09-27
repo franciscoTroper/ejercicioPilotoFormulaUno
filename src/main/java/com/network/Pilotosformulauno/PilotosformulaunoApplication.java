@@ -1,10 +1,16 @@
 package com.network.Pilotosformulauno;
 
+import com.network.Pilotosformulauno.Dominio.*;
 import com.network.Pilotosformulauno.Servicio.Implementaciones.*;
+import org.hibernate.PropertyValueException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.dao.DataIntegrityViolationException;
+
+import java.util.HashSet;
+import java.util.Set;
 
 @SpringBootApplication
 public class PilotosformulaunoApplication implements CommandLineRunner {
@@ -19,15 +25,56 @@ public class PilotosformulaunoApplication implements CommandLineRunner {
 	@Autowired
 	private Servicio_Escuderia servicioEscuderia;
 	@Autowired
-	private Servicio_Facturacion servicioFacturacion;
-	@Autowired
-	private Servicio_Nif servicioNif;
-	@Autowired
-	private Servicio_Telefono servicioTelefono;
-	@Autowired
 	private Servicio_Temporada servicioTemporada;
+
+	private Piloto pilotoFran;
+	private Set<Temporada>temporadas=new HashSet<>();
+	private Escuderia escuderia;
+	private Set<Telefono> telefonos=new HashSet<>();
+	private Nif nif;
+	private Facturacion facturacion;
+	private Telefono telefono;
+
 	@Override
 	public void run(String... args) throws Exception {
+
+		//try {
+			telefonos.add(new Telefono(634534241));
+			telefonos.add(new Telefono(634534242));
+			temporadas.add(new Temporada(2,10));
+			temporadas.add(new Temporada(4,11));
+
+			Piloto pilotoFran=new Piloto("Fran",33
+					,telefonos
+					,new Escuderia("Española","España")
+					,temporadas
+					,new Nif('R',59694848)
+					,new Facturacion(2000,4));
+			for (Telefono elemento:telefonos)
+			{
+				elemento.setPiloto(pilotoFran);
+			}
+			servicioPiloto.register(pilotoFran);
+
+	//	}catch (DataIntegrityViolationException e){}
+	//	catch (PropertyValueException e){}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

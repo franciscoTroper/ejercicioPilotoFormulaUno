@@ -25,16 +25,16 @@ public class Piloto {
     private int edad;
 
 
-//    @ElementCollection
-//    @CollectionTable(name = "telefonos", joinColumns = @JoinColumn(name = "id_piloto"))
-    @OneToMany(mappedBy = "piloto")
+    @OneToMany(mappedBy = "piloto",cascade = {CascadeType.PERSIST,CascadeType.MERGE,CascadeType.REFRESH})
     private Set<Telefono> telefonos=new HashSet<>();
 
-    @ManyToOne
+    @ManyToOne(cascade = {CascadeType.PERSIST,CascadeType.MERGE,CascadeType.REFRESH})
+
     @JoinColumn(name="id_pilotoEscuderia", nullable = false, foreignKey = @ForeignKey(name="FK_piloto"))
     private Escuderia escuderia;
 
-    @ManyToMany
+    @ManyToMany(cascade = {CascadeType.PERSIST,CascadeType.MERGE,CascadeType.REFRESH})
+
     @JoinTable(
             name = "piloto_temporada",
             joinColumns = @JoinColumn(name = "id_piloto",nullable = false, foreignKey = @ForeignKey(name = "FK_temporada")),
@@ -42,13 +42,24 @@ public class Piloto {
     )
     private Set<Temporada> temporadas=new HashSet<>();
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="id_pilotoNif", nullable = false, foreignKey = @ForeignKey(name="FK_piloto_nif"))
     private Nif nif;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="id_pilotoFacturacion", nullable = false, foreignKey = @ForeignKey(name="FK_piloto_facturacion"))
     private Facturacion facturacion;
+
+    public Piloto(String nombre, int edad, Set<Telefono> telefonos, Escuderia escuderia, Set<Temporada> temporadas, Nif nif, Facturacion facturacion) {
+        this.nombre = nombre;
+        this.edad = edad;
+        this.telefonos = telefonos;
+        this.escuderia = escuderia;
+        this.temporadas = temporadas;
+        this.nif = nif;
+        this.facturacion = facturacion;
+    }
+
 
 
 

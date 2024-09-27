@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 
 
 @Service
-public class Servicio_Temporada extends ImplCrud_Servicio<Temporada,Integer> implements IServicio_Temporada {
+public class Servicio_Temporada extends ImplCrud_Servicio<Temporada,Long> implements IServicio_Temporada {
 
     @Autowired
     private IRepositorio_Temporada iRepositorioTemporada;
@@ -17,7 +17,7 @@ public class Servicio_Temporada extends ImplCrud_Servicio<Temporada,Integer> imp
 
 
     @Override
-    protected IGenerico_repositorio<Temporada, Integer> getRepo() {
+    protected IGenerico_repositorio<Temporada, Long> getRepo() {
         return iRepositorioTemporada;
     }
 }

@@ -19,6 +19,12 @@ public class Temporada {
     private int inicio;
     private int fin;
 
-    @ManyToMany(mappedBy = "temporadas")
+    public Temporada(int inicioP,int finP)
+    {
+        inicio=inicioP;
+        fin=finP;
+    }
+
+    @ManyToMany(mappedBy = "temporadas",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     private Set<Piloto> pilotos;
 }

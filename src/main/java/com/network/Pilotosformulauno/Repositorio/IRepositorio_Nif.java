@@ -1,7 +1,9 @@
 package com.network.Pilotosformulauno.Repositorio;
 
 import com.network.Pilotosformulauno.Dominio.Nif;
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-public interface IRepositorio_Nif extends IGenerico_repositorio<Nif,Integer> {
+@Repository
+public interface IRepositorio_Nif extends IGenerico_repositorio<Nif,Long>{
+    Nif findBynumero(int nif);
 }

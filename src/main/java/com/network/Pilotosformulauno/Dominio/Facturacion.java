@@ -1,13 +1,12 @@
 package com.network.Pilotosformulauno.Dominio;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
+@Setter
+@Getter
 
 @Entity
 @Table(name = "facturaciones")
@@ -17,6 +16,22 @@ public class Facturacion {
     private long idFacturacion;
     private int sueldo;
     private int publicidad;
+
+    public Facturacion(int sueldoP,int publicidadP)
+    {
+        sueldo=sueldoP;
+        publicidad=publicidadP;
+    }
+
+    @Override
+    public String toString() {
+        return "Facturacion{" +
+                "idFacturacion=" + idFacturacion +
+                ", sueldo=" + sueldo +
+                ", publicidad=" + publicidad +
+                ", piloto=" + piloto.getNombre() +
+                '}';
+    }
 
     @OneToOne(mappedBy = "facturacion",
             cascade = CascadeType.ALL,

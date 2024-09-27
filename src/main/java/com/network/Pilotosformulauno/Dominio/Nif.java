@@ -17,4 +17,9 @@ public class Nif {
     private long idNif;
     private char letras;
     private long numero;
+
+    public Nif(char letraP,long numeroP){
+        letras=letraP;
+        numero=numeroP;
+    }
 }
