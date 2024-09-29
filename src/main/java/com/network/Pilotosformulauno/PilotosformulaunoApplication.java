@@ -56,10 +56,9 @@ public class PilotosformulaunoApplication implements CommandLineRunner {
 			}
 			servicioPiloto.register(pilotoFran);
 
-//			servicioPiloto.eliminarPilotoPorNumeroNif(59694848L);
-		System.out.println("=================");
-		System.out.println(servicioPiloto.listerPorID(1L));
-			//servicioPiloto.eliminar(1L);
+		System.out.println("=====");
+		servicioPiloto.eliminar(1L);
+		System.out.println("=====");
 
 
 

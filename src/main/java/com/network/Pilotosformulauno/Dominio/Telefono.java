@@ -30,7 +30,7 @@ public class Telefono {
                 '}';
     }
 
-    @ManyToOne
+    @ManyToOne(cascade = {CascadeType.PERSIST,CascadeType.MERGE,CascadeType.REFRESH,CascadeType.REMOVE})
     @JoinColumn(name="id_Piloto", nullable = false, foreignKey = @ForeignKey(name="FK_telefono_piloto"))
     private Piloto piloto;
 }

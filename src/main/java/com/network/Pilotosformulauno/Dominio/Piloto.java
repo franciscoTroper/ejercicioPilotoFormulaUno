@@ -25,15 +25,14 @@ public class Piloto {
     private int edad;
 
 
-    @OneToMany(mappedBy = "piloto",cascade = {CascadeType.PERSIST,CascadeType.MERGE,CascadeType.REFRESH})
+    @OneToMany(mappedBy = "piloto",cascade = {CascadeType.PERSIST,CascadeType.MERGE,CascadeType.REFRESH,CascadeType.REMOVE})
     private Set<Telefono> telefonos=new HashSet<>();
 
-    @ManyToOne(cascade = {CascadeType.PERSIST,CascadeType.MERGE,CascadeType.REFRESH})
+    @ManyToOne(cascade = {CascadeType.PERSIST,CascadeType.MERGE,CascadeType.REFRESH,CascadeType.REMOVE})
     @JoinColumn(name="id_pilotoEscuderia", nullable = false, foreignKey = @ForeignKey(name="FK_piloto"))
     private Escuderia escuderia;
 
-    @ManyToMany(cascade = {CascadeType.PERSIST,CascadeType.MERGE,CascadeType.REFRESH})
-
+    @ManyToMany(cascade = {CascadeType.PERSIST,CascadeType.MERGE,CascadeType.REFRESH,CascadeType.REMOVE})
     @JoinTable(
             name = "piloto_temporada",
             joinColumns = @JoinColumn(name = "id_piloto",nullable = false, foreignKey = @ForeignKey(name = "FK_temporada")),
@@ -41,11 +40,11 @@ public class Piloto {
     )
     private Set<Temporada> temporadas=new HashSet<>();
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade ={CascadeType.PERSIST,CascadeType.MERGE,CascadeType.REFRESH,CascadeType.REMOVE})
     @JoinColumn(name="id_pilotoNif", nullable = false, foreignKey = @ForeignKey(name="FK_piloto_nif"))
     private Nif nif;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade ={CascadeType.PERSIST,CascadeType.MERGE,CascadeType.REFRESH,CascadeType.REMOVE})
     @JoinColumn(name="id_pilotoFacturacion", nullable = false, foreignKey = @ForeignKey(name="FK_piloto_facturacion"))
     private Facturacion facturacion;
 
@@ -58,12 +57,5 @@ public class Piloto {
         this.nif = nif;
         this.facturacion = facturacion;
     }
-
-
-
-
-
-
-
 
 }

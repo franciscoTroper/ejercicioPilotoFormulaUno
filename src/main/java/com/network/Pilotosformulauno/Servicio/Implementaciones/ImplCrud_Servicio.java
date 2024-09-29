@@ -2,13 +2,18 @@ package com.network.Pilotosformulauno.Servicio.Implementaciones;
 
 import com.network.Pilotosformulauno.Dominio.Nif;
 import com.network.Pilotosformulauno.Dominio.Piloto;
+import com.network.Pilotosformulauno.Dominio.Temporada;
 import com.network.Pilotosformulauno.Repositorio.IGenerico_repositorio;
 import com.network.Pilotosformulauno.Repositorio.IRepositorio_Nif;
 import com.network.Pilotosformulauno.Repositorio.IRepositorio_Piloto;
+import com.network.Pilotosformulauno.Repositorio.IRepositorio_Telefono;
 import com.network.Pilotosformulauno.Servicio.ICrud;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -20,6 +25,10 @@ public abstract class ImplCrud_Servicio<T,ID> implements ICrud<T,ID> {
     private IRepositorio_Nif iRepositorioNif;
     @Autowired
     private IRepositorio_Piloto iRepositorioPiloto;
+    @Autowired
+    private IRepositorio_Telefono iRepositorioTelefono;
+    @PersistenceContext
+    private EntityManager entityManager;
 
 
     public T register(T t) throws Exception{
@@ -39,16 +48,12 @@ public abstract class ImplCrud_Servicio<T,ID> implements ICrud<T,ID> {
         Optional<T> t1= getRepo().findById(id);
         return t1.isPresent()?t1.get():null;
     }
-    public void eliminar(ID id){
-        getRepo().deleteById(id);
+    @Transactional
+    public void eliminar(ID id) {
+
+        iRepositorioTelefono.deleteAllByIdPiloto((Long)id);
+        iRepositorioPiloto.deleteAllByIdPiloto((Long) id);
+        iRepositorioPiloto.deleteAllFromPilotoByIdPiloto((Long)id);
 
     }
-    public void eliminarPilotoPorNumeroNif(Long nif)
-    {
-        Nif nif1=iRepositorioNif.findByNumero(nif);
-        if (nif1!=null){iRepositorioPiloto.deleteById(nif1.getIdNif());}
-        else {System.out.println("No existe el piloto con ese nif");}
-    }
-
-
 }

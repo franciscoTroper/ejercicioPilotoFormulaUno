@@ -22,4 +22,5 @@ public class Nif {
         letras=letraP;
         numero=numeroP;
     }
+
 }

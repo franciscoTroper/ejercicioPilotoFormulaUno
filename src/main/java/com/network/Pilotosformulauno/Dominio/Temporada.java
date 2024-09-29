@@ -25,6 +25,6 @@ public class Temporada {
         fin=finP;
     }
 
-    @ManyToMany(mappedBy = "temporadas",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @ManyToMany(mappedBy = "temporadas",cascade = {CascadeType.PERSIST,CascadeType.MERGE,CascadeType.REFRESH,CascadeType.REMOVE})
     private Set<Piloto> pilotos;
 }

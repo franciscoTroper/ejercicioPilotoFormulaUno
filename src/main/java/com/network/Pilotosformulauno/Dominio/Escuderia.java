@@ -26,7 +26,6 @@ public class Escuderia {
         nombre=nombreP;
         pais=paisP;
     }
-
     @Override
     public String toString() {
         return "Escuderia{" +
@@ -36,7 +35,6 @@ public class Escuderia {
                 ", pilotoset=" + pilotoset.size() +
                 '}';
     }
-
-    @OneToMany(mappedBy = "escuderia", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "escuderia", cascade = {CascadeType.PERSIST,CascadeType.MERGE,CascadeType.REFRESH})
     private Set<Piloto> pilotoset;
 }
